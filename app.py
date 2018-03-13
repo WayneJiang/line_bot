@@ -1,21 +1,19 @@
-import os
-import sys
-from argparse import ArgumentParser
-
 from flask import Flask, request, abort
+
 from linebot import (
-    LineBotApi, WebhookParser
+    LineBotApi, WebhookHandler
 )
 from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 )
+
+import os
 
 app = Flask(__name__)
 
-# get channel_secret and channel_access_token from your environment variable
 channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
 channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
 if channel_secret is None:
@@ -57,6 +55,6 @@ def callback():
 
     return 'OK'
 
-
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5555)
+    port = int(os.environ.get('PORT', 5555))
+    app.run(host='0.0.0.0', port=port)
