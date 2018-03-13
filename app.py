@@ -28,10 +28,7 @@ line_bot_api = LineBotApi(channel_access_token)
 # Channel Secret
 parser = WebhookParser(channel_secret)
 
-# 監聽所有來自 /callback 的 Post Request
-@app.route("/callback", methods=['POST'])
 def callback():
-    # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
     # get request body as text
@@ -40,20 +37,21 @@ def callback():
 
     # parse webhook body
     try:
-         events = parser.parse(body, signature)
+        events = parser.parse(body, signature)
     except InvalidSignatureError:
         abort(400)
 
+    # if event is MessageEvent and message is TextMessage, then echo text
     for event in events:
         if not isinstance(event, MessageEvent):
             continue
         if not isinstance(event.message, TextMessage):
             continue
-            
-            line_bot_api.reply_message(
+
+        line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=event.message.text)
-            )
+        )
 
     return 'OK'
 
