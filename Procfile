@@ -1,1 +1,1 @@
-web: python app.py --logs
+web: python app.py
