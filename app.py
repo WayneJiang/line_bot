@@ -45,8 +45,8 @@ def callback():
     for event in events:
         if not isinstance(event, MessageEvent):
             continue
-        if not isinstance(event.message, TextMessage):
-            continue
+        # if not isinstance(event.message, TextMessage):
+        #     continue
 
         if isinstance(event.message, StickerMessage):
             print("StickerMessage")
@@ -55,7 +55,7 @@ def callback():
                 event.reply_token,
                 TextSendMessage(text='QQ')
             )
-        else:
+        else if isinstance(event.message, TextMessage):
             print("TextMessage")
 
             line_bot_api.reply_message(
