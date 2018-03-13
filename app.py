@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
+    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage, StickerMessage
 )
 
 import os
@@ -48,10 +48,16 @@ def callback():
         if not isinstance(event.message, TextMessage):
             continue
 
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=event.message.text)
-        )
+        if isinstance(event.message, StickerMessage):
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text='QQ')
+            )
+        else
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=event.message.text)
+            )
 
     return 'OK'
 
