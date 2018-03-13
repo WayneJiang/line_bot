@@ -49,11 +49,15 @@ def callback():
             continue
 
         if isinstance(event.message, StickerMessage):
+            app.logger.info("StickerMessage")
+
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text='QQ')
             )
         else:
+            app.logger.info("TextMessage")
+
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text=event.message.text)
