@@ -53,7 +53,7 @@ def callback():
                 event.reply_token,
                 TextSendMessage(text='QQ')
             )
-        else
+        else:
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text=event.message.text)
