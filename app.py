@@ -51,7 +51,7 @@ def callback():
         if isinstance(event.message, StickerMessage):
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text='QQ')
+                TextSendMessage(text=''+event.message.sticker_id)
             )
         elif isinstance(event.message, TextMessage):
             line_bot_api.reply_message(
