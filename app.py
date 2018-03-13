@@ -51,7 +51,9 @@ def callback():
         if isinstance(event.message, StickerMessage):
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text=''+event.message.package_id+'|'+event.message.sticker_id)
+                StickerMessage(
+                    package_id='2000041',
+                    sticker_id='17894136')
             )
         elif isinstance(event.message, TextMessage):
             line_bot_api.reply_message(
