@@ -50,13 +50,13 @@ def callback():
 
         print(''+event.source)
 
-        if isinstance(event.message, StickerMessage):
+        # if isinstance(event.message, StickerMessage):
             
-        elif isinstance(event.message, TextMessage):
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=event.message.text)
-            )
+        # elif isinstance(event.message, TextMessage):
+        #     line_bot_api.reply_message(
+        #         event.reply_token,
+        #         TextSendMessage(text=event.message.text)
+        #     )
 
     return 'OK'
 
