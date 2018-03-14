@@ -49,6 +49,8 @@ def callback():
         #     continue
 
         if isinstance(event.message, StickerMessage):
+            print(''+event.message.package_id)
+            print(''+event.message.sticker_id)
             line_bot_api.reply_message(
                 event.reply_token,
                 StickerSendMessage(
