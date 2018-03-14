@@ -48,7 +48,7 @@ def callback():
         # if not isinstance(event.message, TextMessage):
         #     continue
 
-        print(''+event.source)
+        print(''+event.source.userId)
 
         # if isinstance(event.message, StickerMessage):
             
