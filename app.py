@@ -43,12 +43,11 @@ def callback():
 
     # if event is MessageEvent and message is TextMessage, then echo text
     for event in events:
+        print(''+event.SourceUser.user_id)
         # if not isinstance(event, MessageEvent):
         #     continue
         # if not isinstance(event.message, TextMessage):
         #     continue
-
-        print(''+event.sources.user_id)
 
         # if isinstance(event.message, StickerMessage):
             
@@ -57,6 +56,7 @@ def callback():
         #         event.reply_token,
         #         TextSendMessage(text=event.message.text)
         #     )
+
 
     return 'OK'
 
