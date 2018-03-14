@@ -49,14 +49,7 @@ def callback():
         #     continue
 
         if isinstance(event.message, StickerMessage):
-            print(''+event.message.package_id)
-            print(''+event.message.sticker_id)
-            line_bot_api.reply_message(
-                event.reply_token,
-                StickerSendMessage(
-                    package_id='2000041',
-                    sticker_id='17894136')
-            )
+            print(''+event.source.userId)
         elif isinstance(event.message, TextMessage):
             line_bot_api.reply_message(
                 event.reply_token,
