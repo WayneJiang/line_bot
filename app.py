@@ -56,7 +56,8 @@ def callback():
         #         TextSendMessage(text=event.message.text)
         #     )
 
-        print('Q='+event.source.user_id)
+        if isinstance(event.source,SourceUser):
+            print('Q='+event.source.user_id)
             # line_bot_api.reply_message(
             #     event.reply_token,
             #     TextSendMessage(text=event.message.text)
