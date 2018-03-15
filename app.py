@@ -7,11 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, StickerMessage, StickerSendMessage
-)
-
-from linebot.models import (
-    SourceUser
+    MessageEvent, TextMessage, TextSendMessage, StickerMessage, StickerSendMessage, SourceUser
 )
 
 import os
@@ -47,13 +43,15 @@ def callback():
 
     # if event is MessageEvent and message is TextMessage, then echo text
     for event in events:
-        if not isinstance(event, MessageEvent):
-            continue
+        # if not isinstance(event, MessageEvent):
+        #     continue
         # if not isinstance(event.message, TextMessage):
         #     continue
 
-        if isinstance(event, TextMessage):
+        if isinstance(event, SourceUser):
             print('Q='+event.SourceUser.user_id)
+        else:   
+            print('QQQ')
 
         # if isinstance(event.message, StickerMessage):
             
