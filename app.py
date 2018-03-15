@@ -64,7 +64,22 @@ def callback():
             print(profile.status_message)
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text=profile.display_name+'\n'+profile.user_id)
+                TextSendMessage(text=profile.display_name)
+            )
+
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=profile.user_id)
+            )
+
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=profile.picture_url)
+            )
+
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=profile.status_message)
             )
 
     return 'OK'
