@@ -10,7 +10,7 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, StickerMessage, StickerSendMessage
 )
 
-from linebot.models.SourceUser(
+from linebot.models.sources import(
     SourceUser
 )
 
