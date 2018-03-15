@@ -53,7 +53,7 @@ def callback():
         #     continue
 
         if isinstance(event, SourceUser):
-        print(''+event.SourceUser.user_id)
+            print('Q='+event.SourceUser.user_id)
 
         # if isinstance(event.message, StickerMessage):
             
