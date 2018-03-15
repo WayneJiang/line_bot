@@ -10,10 +10,6 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, StickerMessage, StickerSendMessage
 )
 
-from linebot.models.sources import(
-    SourceUser
-)
-
 import os
 
 app = Flask(__name__)
@@ -52,10 +48,7 @@ def callback():
         # if not isinstance(event.message, TextMessage):
         #     continue
 
-        if isinstance(event, SourceUser):
-            print('Q='+event.SourceUser.user_id)
-        else:   
-            print('QQQ')
+        print('Q='+event.SourceUser.user_id)
 
         # if isinstance(event.message, StickerMessage):
             
