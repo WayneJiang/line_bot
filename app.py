@@ -62,10 +62,10 @@ def callback():
             print(profile.user_id)
             print(profile.picture_url)
             print(profile.status_message)
-            # line_bot_api.reply_message(
-            #     event.reply_token,
-            #     TextSendMessage(text=event.message.text)
-            # )
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=profile.display_name+'\n'+profile.user_id)
+            )
 
     return 'OK'
 
