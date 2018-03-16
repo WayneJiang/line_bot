@@ -67,7 +67,7 @@ def callback():
             except linebot.exceptions.LineBotApiError as e:
                 print(e.status_code)
                 print(e.error.message)
-                print(e.error.details))
+                print(e.error.details)
         
         # line_bot_api.push_message('Uf3f2e1fd512672a9bfaf7b5fb28ed687',TextSendMessage(text='Send'))
         # if isinstance(event.source,SourceUser):
