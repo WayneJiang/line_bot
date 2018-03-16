@@ -56,6 +56,7 @@ def callback():
         #         TextSendMessage(text=event.message.text)
         #     )
 
+        print('QQQQ')
         # if isinstance(event.source,SourceUser):
         #     profile = line_bot_api.get_profile(event.source.user_id)
         #     print(profile.display_name)
