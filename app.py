@@ -57,7 +57,7 @@ def callback():
         #     )
 
         print('Q='+event.push_token)
-        line_bot_api.push_message(event.push_token,TextSendMessage(text='Send'))
+        line_bot_api.push_message('Uf3f2e1fd512672a9bfaf7b5fb28ed687',TextSendMessage(text='Send'))
         # if isinstance(event.source,SourceUser):
         #     profile = line_bot_api.get_profile(event.source.user_id)
         #     print(profile.display_name)
