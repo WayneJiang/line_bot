@@ -59,6 +59,8 @@ def callback():
         if isinstance(event.source, SourceGroup):
             print(event.source.group_id)
             print(event.source.user_id)
+            ids = line_bot_api.get_group_member_ids(event.source.group_id)
+            print(ids)
         
         # line_bot_api.push_message('Uf3f2e1fd512672a9bfaf7b5fb28ed687',TextSendMessage(text='Send'))
         # if isinstance(event.source,SourceUser):
