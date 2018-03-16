@@ -59,9 +59,15 @@ def callback():
         if isinstance(event.source, SourceGroup):
             print(event.source.group_id)
             print(event.source.user_id)
-            member_ids_res = line_bot_api.get_group_member_ids(event.source.group_id)
-            print(member_ids_res.member_ids)
-            print(member_ids_res.next)
+
+            try:
+                member_ids_res = line_bot_api.get_group_member_ids(event.source.group_id)
+                print(member_ids_res.member_ids)
+                print(member_ids_res.next)
+            except linebot.exceptions.LineBotApiError as e:
+                print(e.status_code)
+                print(e.error.message)
+                print(e.error.details))
         
         # line_bot_api.push_message('Uf3f2e1fd512672a9bfaf7b5fb28ed687',TextSendMessage(text='Send'))
         # if isinstance(event.source,SourceUser):
