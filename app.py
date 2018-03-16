@@ -62,13 +62,13 @@ def callback():
             print(profile.user_id)
             print(profile.picture_url)
             print(profile.status_message)
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text='name='+profile.display_name+'\n'
-                +'user id='+profile.user_id+'\n'
-                +'picture url='+profile.picture_url+'\n'
-                +'status message='+profile.status_message)
-            )
+            # line_bot_api.reply_message(
+            #     event.reply_token,
+            #     TextSendMessage(text='name='+profile.display_name+'\n'
+            #     +'user id='+profile.user_id+'\n'
+            #     +'picture url='+profile.picture_url+'\n'
+            #     +'status message='+profile.status_message)
+            # )
 
             line_bot_api.push_message('Uf3f2e1fd512672a9bfaf7b5fb28ed687',TextSendMessage(text='Send'))
 
