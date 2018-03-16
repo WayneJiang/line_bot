@@ -70,6 +70,7 @@ def callback():
             #     +'status message='+profile.status_message)
             # )
 
+            print('Q='+event.push_token)
             line_bot_api.push_message(event.push_token,TextSendMessage(text='Send'))
     return 'OK'
 
