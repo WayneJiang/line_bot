@@ -70,6 +70,8 @@ def callback():
                 +'status message='+profile.status_message)
             )
 
+            line_bot_api.push_message('Uf3f2e1fd512672a9bfaf7b5fb28ed687',TextSendMessage(text='Send'))
+
     return 'OK'
 
 if __name__ == "__main__":
