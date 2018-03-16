@@ -59,7 +59,7 @@ def callback():
         if isinstance(event.source, SourceGroup):
             print(event.source.group_id)
             print(event.source.user_id)
-            member_ids_res = line_bot_api.get_group_member_ids(group_id)
+            member_ids_res = line_bot_api.get_group_member_ids(event.source.group_id)
             print(member_ids_res.member_ids)
             print(member_ids_res.next)
         
