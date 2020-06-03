@@ -76,13 +76,11 @@ def callback():
         #     print(profile.user_id)
         #     print(profile.picture_url)
         #     print(profile.status_message)
-            # line_bot_api.reply_message(
-            #     event.reply_token,
-            #     TextSendMessage(text='name='+profile.display_name+'\n'
-            #     +'user id='+profile.user_id+'\n'
-            #     +'picture url='+profile.picture_url+'\n'
-            #     +'status message='+profile.status_message)
-            # )
+
+            line_bot_api.reply_message(
+                 event.reply_token,
+                 TextSendMessage(text='又在幻想')
+            )
     return 'OK'
 
 if __name__ == "__main__":
