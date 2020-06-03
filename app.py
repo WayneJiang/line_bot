@@ -86,6 +86,13 @@ def callback():
          #    )
     return 'OK'
 
+
+@handler.add(JoinEvent)
+def handle_join(event):
+    welcome_message = "怎樣？可憐那"
+    line_bot_api.reply_message(event.reply_token, TextMessage(text=welcome_message))
+    print("加入的事件: %s" % JoinEvent)
+
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5555))
     app.run(host='0.0.0.0', port=port)
