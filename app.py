@@ -41,52 +41,15 @@ def callback():
         events = parser.parse(body, signature)
     except InvalidSignatureError:
         abort(400)
+    return 'OK'
 
-    # if event is MessageEvent and message is TextMessage, then echo text
-    for event in events:
-        if not isinstance(event, MessageEvent):
-            continue
-        # if not isinstance(event.message, TextMessage):
-        #     continue
-
-        # if isinstance(event.message, StickerMessage):
-            
-        #
-
-        elif isinstance(event.message, TextMessage):
-             if event.message.text=="老高":
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+   if event.message.text=="老高":
               line_bot_api.reply_message(
                  event.reply_token,
                  TextSendMessage(text='又在幻想')
               )
-
-        elif isinstance(event.source, SourceGroup):
-            print(event.source.group_id)
-            print(event.source.user_id)
-
-            try:
-                member_ids_res = line_bot_api.get_group_member_ids(event.source.group_id)
-                print(member_ids_res.member_ids)
-                print(member_ids_res.next)
-            except linebot.exceptions.LineBotApiError as e:
-                print(e.status_code)
-                print(e.error.message)
-                print(e.error.details)
-        
-        # line_bot_api.push_message('Uf3f2e1fd512672a9bfaf7b5fb28ed687',TextSendMessage(text='Send'))
-        # if isinstance(event.source,SourceUser):
-        #     profile = line_bot_api.get_profile(event.source.user_id)
-        #     print(profile.display_name)
-        #     print(profile.user_id)
-        #     print(profile.picture_url)
-        #     print(profile.status_message)
-
-         #   line_bot_api.reply_message(
-         #       event.reply_token,
-         #      TextSendMessage(text='又在幻想')
-         #    )
-    return 'OK'
-
 
 @handler.add(JoinEvent)
 def handle_join(event):
