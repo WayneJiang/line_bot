@@ -50,13 +50,15 @@ def callback():
 
         # if isinstance(event.message, StickerMessage):
             
-        # elif isinstance(event.message, TextMessage):
-        #     line_bot_api.reply_message(
-        #         event.reply_token,
-        #         TextSendMessage(text=event.message.text)
-        #     )
+        #
 
-        if isinstance(event.source, SourceGroup):
+        elif isinstance(event.message, TextMessage):
+             line_bot_api.reply_message(
+                 event.reply_token,
+                 TextSendMessage(text=event.message.text)
+             )
+
+        elif isinstance(event.source, SourceGroup):
             print(event.source.group_id)
             print(event.source.user_id)
 
@@ -77,10 +79,10 @@ def callback():
         #     print(profile.picture_url)
         #     print(profile.status_message)
 
-            line_bot_api.reply_message(
-                 event.reply_token,
-                 TextSendMessage(text='又在幻想')
-            )
+         #   line_bot_api.reply_message(
+         #       event.reply_token,
+         #      TextSendMessage(text='又在幻想')
+         #    )
     return 'OK'
 
 if __name__ == "__main__":
