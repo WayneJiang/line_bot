@@ -42,11 +42,12 @@ def callback():
     return 'OK'
 
 
-# # 處理訊息
-# @handler.add(MessageEvent, message=TextMessage)
-# def handle_message(event):
-#     message = TextSendMessage(text=event.message.text)
-#     line_bot_api.reply_message(event.reply_token, message)
+# 處理訊息
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+     if event.message.text == "老高":
+        message = TextSendMessage(text="又在幻想")
+        line_bot_api.reply_message(event.reply_token, message)
 
 
 @app.route('/')
@@ -57,13 +58,15 @@ def index():
 # 當機器人加入到一個群組，第一次顯示的訊息
 @handler.add(JoinEvent)
 def handle_join(event):
-    welcome_message = "大家好！我是Line Bot，請多多指教"  # 可以修改bot進到群組時，出現的字串
+    welcome_message = "怎樣？可憐那"  # 可以修改bot進到群組時，出現的字串
     line_bot_api.reply_message(event.reply_token, TextMessage(text=welcome_message))
     print("加入的事件: %s" % JoinEvent)
 
 
 @handler.add(LeaveEvent)
 def handle_leave(event):
+    message = "可憐那"  # 可以修改bot進到群組時，出現的字串
+    line_bot_api.reply_message(event.reply_token, TextMessage(text=message))
     print("離開 事件: %s" % event)
     print("離開事件的資訊: %s" % event.source)
 
