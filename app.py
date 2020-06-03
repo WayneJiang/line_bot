@@ -53,7 +53,7 @@ def callback():
         #
 
         elif isinstance(event.message, TextMessage):
-             if event.message.text=="老高"
+             if event.message.text=="老高":
               line_bot_api.reply_message(
                  event.reply_token,
                  TextSendMessage(text='又在幻想')
