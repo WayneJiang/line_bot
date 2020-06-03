@@ -65,8 +65,6 @@ def handle_join(event):
 
 @handler.add(LeaveEvent)
 def handle_leave(event):
-    message = "可憐那"  # 可以修改bot進到群組時，出現的字串
-    line_bot_api.reply_message(event.reply_token, TextMessage(text=message))
     print("離開 事件: %s" % event)
     print("離開事件的資訊: %s" % event.source)
 
