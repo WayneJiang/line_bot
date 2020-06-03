@@ -53,10 +53,11 @@ def callback():
         #
 
         elif isinstance(event.message, TextMessage):
-             line_bot_api.reply_message(
+             if(event.message.text=='老高')
+              line_bot_api.reply_message(
                  event.reply_token,
-                 TextSendMessage(text=event.message.text)
-             )
+                 TextSendMessage(text='又在幻想')
+              )
 
         elif isinstance(event.source, SourceGroup):
             print(event.source.group_id)
