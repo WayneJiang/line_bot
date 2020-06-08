@@ -46,7 +46,7 @@ keywords = ["又在幻想","再說一次也是一樣"]
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-     if "老高" event.message.text:
+     if "老高" in event.message.text:
         message = TextSendMessage(text=random.choice(keywords))
         line_bot_api.reply_message(event.reply_token, message)
 
