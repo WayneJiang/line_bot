@@ -43,7 +43,7 @@ def callback():
         abort(400)
     return 'OK'
 
-keywords = ["又在幻想","你這個不行","這個是新需求，又沒講","這是舊的，我不知道","齁又偷改","又抽風啦","我夢到的"]
+keywords = ["我可以連續吃15天","哪有之前準現在就不準的","誰說只有我準","你們這樣效率很差"]
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
