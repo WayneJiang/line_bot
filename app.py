@@ -1,7 +1,7 @@
 import os
 
 #channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
-channel_secert = 'b5ef5faad577943ab91961106aa23cfb'
+channel_secret = 'b5ef5faad577943ab91961106aa23cfb'
 #channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
 channel_access_token = '6gJmycFl4wqU5BARAEQt+Q4gMorbAyZ7+4+5poIcPCqIbrhM6HIXNBDMYdG9YkfOeI+arsGCYbHhqnACyj06LZSmszL2lE01ahtFEiFwfq8kyji5V6LWNQQ+PvspLDvW8xgFWwwHCsB2uKyb2YrY2gdB04t89/1O/w1cDnyilFU='
 
