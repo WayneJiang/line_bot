@@ -43,12 +43,12 @@ def callback():
         abort(400)
     return 'OK'
 
-keywords = ["我可以連續吃15天","哪有之前準現在就不準的","誰說只有我準","你們這樣效率很差"]
+keywords = ["我可以連續吃15天","哪有之前準現在就不準的","誰說只有我準","你們這樣效率很差","乾我屁事"]
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-     if "老高" in event.message.text:
+     if "M" in event.message.text:
         message = TextSendMessage(text=random.choice(keywords))
         line_bot_api.reply_message(event.reply_token, message)
 
@@ -61,7 +61,7 @@ def index():
 # 當機器人加入到一個群組，第一次顯示的訊息
 @handler.add(JoinEvent)
 def handle_join(event):
-    welcome_message = "怎樣？可憐那"  # 可以修改bot進到群組時，出現的字串
+    welcome_message = "乾我屁事"  # 可以修改bot進到群組時，出現的字串
     line_bot_api.reply_message(event.reply_token, TextMessage(text=welcome_message))
     print("加入的事件: %s" % JoinEvent)
 
