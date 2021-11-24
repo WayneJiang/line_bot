@@ -1,7 +1,9 @@
 import os
 
-channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
-channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
+#channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
+channel_secert = 'b5ef5faad577943ab91961106aa23cfb'
+#channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
+channel_access_token = '6gJmycFl4wqU5BARAEQt+Q4gMorbAyZ7+4+5poIcPCqIbrhM6HIXNBDMYdG9YkfOeI+arsGCYbHhqnACyj06LZSmszL2lE01ahtFEiFwfq8kyji5V6LWNQQ+PvspLDvW8xgFWwwHCsB2uKyb2YrY2gdB04t89/1O/w1cDnyilFU='
 
 from flask import Flask, request, abort
 
@@ -43,7 +45,7 @@ def callback():
         abort(400)
     return 'OK'
 
-keywords = ["我可以連續吃15天","哪有之前準現在就不準的","誰說只有我準","你們這樣效率很差","乾我屁事"]
+keywords = ["我可以連續吃15天","哪有之前準現在就不準的","我們需要大學以上程度，不是國中生","你們這樣效率很差","乾我屁事"]
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
