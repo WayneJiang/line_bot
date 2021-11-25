@@ -51,7 +51,7 @@ keywords = ["哪有之前準現在就不準的","我們需要大學以上程度�
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
      if "老M掰" in event.message.text:
-        line_bot_api.leave_group(event.source.groupId)
+        line_bot_api.leave_group(event.source.group_id)
      elif "M" in event.message.text:
         message = TextSendMessage(text=random.choice(keywords))
         line_bot_api.reply_message(event.reply_token, message)
