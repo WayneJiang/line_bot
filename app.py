@@ -51,6 +51,8 @@ keywords = ["哪有之前準現在就不準的","我們需要大學以上程度�
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
      if "老M掰" in event.message.text:
+        bye_message = "好啊" #離開群組訊息
+        line_bot_api.reply_message(event.reply_token, TextMessage(text=bye_message))
         line_bot_api.leave_group(event.source.group_id)
      elif "M" in event.message.text:
         message = TextSendMessage(text=random.choice(keywords))
@@ -73,8 +75,6 @@ def handle_join(event):
 
 @handler.add(LeaveEvent)
 def handle_leave(event):
-    bye_message = "好啊" #離開群組訊息
-    line_bot_api.reply_message(event.reply_token, TextMessage(text=bye_message))
     print("離開的事件: %s" % event)
     print("離開事件的資訊: %s" % event.source)
 
