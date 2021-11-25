@@ -52,7 +52,7 @@ keywords = ["哪有之前準現在就不準的","我們需要大學以上程度�
 def handle_message(event):
      if "老M掰" in event.message.text:
         line_bot_api.leave_group(event.groupId)
-     else if "M" in event.message.text:
+     elif "M" in event.message.text:
         message = TextSendMessage(text=random.choice(keywords))
         line_bot_api.reply_message(event.reply_token, message)
 
