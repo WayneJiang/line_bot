@@ -45,32 +45,37 @@ def callback():
         abort(400)
     return 'OK'
 
-keywords = ["我可以連續吃15天","哪有之前準現在就不準的","我們需要大學以上程度，不是國中生","你們這樣效率很差","乾我屁事"]
+keywords = ["哪有之前準現在就不準的","我們需要大學以上程度，不是國中生","你們這樣效率很差","乾我屁事"]
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-     if "M" in event.message.text:
+     if "老M掰" in event.message.text:
+        line_bot_api.leave_group(event.groupId)
+     else if "M" in event.message.text:
         message = TextSendMessage(text=random.choice(keywords))
         line_bot_api.reply_message(event.reply_token, message)
 
 
 @app.route('/')
 def index():
-    return 'Hello World'
+    return 'Hello Bot'
 
 
 # 當機器人加入到一個群組，第一次顯示的訊息
 @handler.add(JoinEvent)
 def handle_join(event):
-    welcome_message = "乾我屁事"  # 可以修改bot進到群組時，出現的字串
+    welcome_message = "歡迎收聽GoMore M觀點"  #進入群組訊息
     line_bot_api.reply_message(event.reply_token, TextMessage(text=welcome_message))
-    print("加入的事件: %s" % JoinEvent)
+    print("加入的事件: %s" % event)
+     print("加入事件的資訊: %s" % event.source)
 
 
 @handler.add(LeaveEvent)
 def handle_leave(event):
-    print("離開 事件: %s" % event)
+    bye_message = "好啊" #離開群組訊息
+    line_bot_api.reply_message(event.reply_token, TextMessage(text=bye_message))
+    print("離開的事件: %s" % event)
     print("離開事件的資訊: %s" % event.source)
 
 if __name__ == "__main__":
