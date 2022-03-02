@@ -91,6 +91,7 @@ if __name__ == "__main__":
     
     while True:
         price = GetPrice("BTCUSDT")
-        message = TextSendMessage(text=price)
-        line_bot_api.push_message(user_id, message)
+        print(price)
+        #message = TextSendMessage(text=price)
+        #line_bot_api.push_message(user_id, message)
         time.sleep(10)
