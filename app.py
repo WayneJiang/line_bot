@@ -89,10 +89,8 @@ if __name__ == "__main__":
     #port = int(os.environ.get('PORT', 5000))
     #app.run(host='0.0.0.0', port=port)
     
-    print("X")
     while True:
-        print("Query")
         price = GetPrice("BTCUSDT")
         message = TextSendMessage(text=price)
-        line_bot_api.reply_message(event.reply_token, message)
+        line_bot_api.push_message(user_id, message))
         time.sleep(10)
