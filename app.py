@@ -90,6 +90,6 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0', port=port)
     while True:
         price = GetPrice("BTCUSDT")
-        message = TextSendMessage(text={price})
+        message = TextSendMessage(text=price)
         line_bot_api.reply_message(event.reply_token, message)
         time.sleep(10)
