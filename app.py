@@ -80,7 +80,7 @@ def handle_leave(event):
     
 def GetPrice(symbol):
     try:
-        price = requests.get(https://api.binance.com/api/v3/ticker/price, params={'symbol': symbol}).json()['price']
+        price = requests.get('https://api.binance.com/api/v3/ticker/price', params={'symbol': symbol}).json()['price']
     except Exception as e:
         print ('Error! problem is {}'.format(e.args[0]))
     return float(price)
