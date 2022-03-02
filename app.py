@@ -1,5 +1,4 @@
 import os
-import requests
 
 #channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
 channel_secret = 'b5ef5faad577943ab91961106aa23cfb'
@@ -76,22 +75,7 @@ def handle_join(event):
 def handle_leave(event):
     print("離開的事件: %s" % event)
     print("離開事件的資訊: %s" % event.source)
-    
-    
-def GetPrice(symbol):
-    try:
-        price = requests.get('https://api.binance.com/api/v3/ticker/price', params={'symbol': symbol}).json()['price']
-    except Exception as e:
-        print ('Error! problem is {}'.format(e.args[0]))
-    return float(price)
 
 if __name__ == "__main__":
-    #port = int(os.environ.get('PORT', 5000))
-    #app.run(host='0.0.0.0', port=port)
-    
-    while True:
-        price = GetPrice("BTCUSDT")
-        print(price)
-        #message = TextSendMessage(text=price)
-        #line_bot_api.push_message(user_id, message)
-        time.sleep(10)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
