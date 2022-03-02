@@ -92,4 +92,4 @@ if __name__ == "__main__":
         price = GetPrice("BTCUSDT")
         message = TextSendMessage(text={price})
         line_bot_api.reply_message(event.reply_token, message)
-        time.sleep(14400)
+        time.sleep(10)
